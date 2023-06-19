@@ -1,0 +1,7 @@
+ {
+  "image": "iojs/iojs",
+  "command": "io",
+  "workspaceFolder": "/workspace",
+  "files": ["*.io"],
+  "extensions": ["iojs.io"]
+}
