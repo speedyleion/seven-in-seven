@@ -1,5 +1,5 @@
 # Use an official Ubuntu runtime as a parent image
-FROM ubuntu:20.04
+FROM ubuntu:22.04
 
 # Set the working directory in the container to /app
 WORKDIR /app
@@ -12,8 +12,10 @@ RUN apt-get update \
         libreadline6-dev \
         libpcre3-dev \
         libssl-dev \
+        git \
     && rm -rf /var/lib/apt/lists/* \
-    && git clone --depth 1 https://github.com/IoLanguage/io.git \
+    && git clone --recursive https://github.com/IoLanguage/io.git \
+    && sed -i '/msse2/d' io/CMakeLists.txt \
     && mkdir io/build \
     && cd io/build \
     && cmake .. \
